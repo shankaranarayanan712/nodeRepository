@@ -15,39 +15,24 @@ var urlencodedParser = bodyParser.urlencoded({extended: false});
 
 module.exports = function todoControllers(app) {
     
-    app.get('/todo', function (req, res) {
+    app.get('/todo',(req, res)=> {
         // get Data from Mongo db
-        Todo.find({}, function (err, data) {
+        Todo.find({}, (err,data) => {
             if (err) throw err
             res.render('todo', {todos:data})
         })
     })
     app.use('/todo', urlencodedParser)
-    
-    app.post('/todo', function (req, res) {
-        var newTodo = Todo(req.body).save(function (err, data) {
+    app.post('/todo',(req, res) => {
+        var newTodo = Todo(req.body).save((err, data)=> {
             if(err) throw err
             res.json(data)
         })
     })
-    app.get('/todo/getItem/:itemId', function (req, res) {
-        Todo.findById(req.params.itemId , function (err, data) {
-            if (err) throw err
-            res.render('todo', {todos:data})
-        })
-        
-    })
-    
-    app.delete('/todo/:item', function (req, res) {
-        debugger;
-        Todo.find({item : req.params.item}).remove(function (err, data) {
+    app.delete('/todo/:item', (req, res)=> {
+        Todo.find({item : req.params.item}).remove( (err, data) => {
             if(err) throw err
             res.json(data)
         })
-    })
-    
-    app.get('/program', function (req, res) {
-        res.render('program')
-        
     })
 };
