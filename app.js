@@ -16,4 +16,4 @@ app.use(express.static('./public')) // this will make it global irrespective of 
 todoControllers(app);
 
 app.listen(4000);
-console.log('You are listening to port:3000')
+console.log('You are listening to port:4000')

@@ -58,7 +58,7 @@ li{
     letter-spacing: 1px;
 }
 
-li:hover{
+li .del:hover{
     text-decoration: line-through;
     background: rgba(0,0,0,0.2);
 }

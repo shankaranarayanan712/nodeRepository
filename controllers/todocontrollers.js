@@ -39,6 +39,7 @@ module.exports = function todoControllers(app) {
     })
     
     app.delete('/todo/:item', function (req, res) {
+        debugger;
         Todo.find({item : req.params.item}).remove(function (err, data) {
             if(err) throw err
             res.json(data)

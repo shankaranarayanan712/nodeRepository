@@ -31,8 +31,8 @@ $(document).ready(function(){
     $('.edit').on('click', function(e){
         var item =  $(e.currentTarget).attr("id")
         $.ajax({
-            type: 'GET',
-            url: '/todo/getItem/'+item,
+            type: 'PUT',
+            url: '/todo/getItem/' +item,
             success: function(data){
                 //do something with the data via front-end framework
                 location.reload();
